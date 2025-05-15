@@ -5,7 +5,7 @@
  */
 function stringToNestedObject(str) {
     // Split the string by dots
-    const keys = str.split('.');
+    const arr = str.split('.');
     
     // Start with an empty object
     let result = {};
@@ -14,15 +14,15 @@ function stringToNestedObject(str) {
     let current = result;
     
     // Iterate through all keys except the last one
-    for (let i = 0; i < keys.length - 1; i++) {
+    for (let i = 0; i < arr.length - 1; i++) {
         // Create a new empty object for the current key
-        current[keys[i]] = {};
+        current[arr[i]] = {};
         // Move to the next level
-        current = current[keys[i]];
+        current = current[arr[i]];
     }
     
     // Set the last key with an empty object
-    current[keys[keys.length - 1]] = {};
+    current[arr[arr.length - 1]] = {};
     
     return result;
 }
